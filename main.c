@@ -11,6 +11,8 @@
 #define CHILD_TO_PARENT 1
 
 // Functions
+char *replace_string(char *haystack, char *needle, char *toreplace);
+char replace_string_inplace(char *haystack,char *needle, char *toreplace);
 void strtolower(char *string);
 void leetify(char *string);
 int main();
@@ -45,7 +47,7 @@ int main() {
       read(fds[PARENT_TO_CHILD][READ],&dtlen,4);
       read(fds[PARENT_TO_CHILD][READ],input,dtlen);
 
-      leetify(input);
+      strtolower(input);
 
       write(fds[CHILD_TO_PARENT][WRITE],input,dtlen);
     }
